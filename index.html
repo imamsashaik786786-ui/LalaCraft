@@ -262,17 +262,21 @@ Affordable pricing for every business.
 Fill the form and we'll contact you within 24 hours.
 </p>
 
-<form class="contact-form">
+<form
+  class="contact-form"
+  action="https://formspree.io/f/mwvgajyk"
+  method="POST"
+>
 
-<input type="text" placeholder="Your Name" required>
+<input type="text" name="name" placeholder="Your Name" required>
 
-<input type="email" placeholder="Email Address" required>
+<input type="email" name="email" placeholder="Email Address" required>
 
-<input type="tel" placeholder="Phone Number" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
 
-<input type="text" placeholder="Business Name">
+<input type="text" name="business" placeholder="Business Name">
 
-<select>
+<select name="website">
 <option>Select Website Type</option>
 <option>Business Website</option>
 <option>E-Commerce Website</option>
@@ -280,8 +284,11 @@ Fill the form and we'll contact you within 24 hours.
 <option>Landing Page</option>
 </select>
 
-<textarea placeholder="Tell us about your project"></textarea>
-
+<textarea
+  name="message"
+  placeholder="Tell us about your project"
+  required
+></textarea>
 <button type="submit">🚀 Request a Website</button>
 
 </form>
