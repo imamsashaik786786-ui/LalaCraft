@@ -36,3 +36,13 @@ window.addEventListener("load", () => {
         document.getElementById("loader").style.display = "none";
     }, 1500);
 });
+// FAQ Toggle
+const faqs = document.querySelectorAll(".faq-item");
+
+faqs.forEach((item) => {
+  const btn = item.querySelector(".faq-question");
+
+  btn.addEventListener("click", () => {
+    item.classList.toggle("active");
+  });
+});
