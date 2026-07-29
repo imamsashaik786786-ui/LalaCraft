@@ -630,3 +630,29 @@ transform:translateY(-5px);
 .whatsapp-btn:hover {
     transform: scale(1.1);
 }
+.btn1,
+.btn2,
+.quote-btn {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn1:visited,
+.btn2:visited,
+.quote-btn:visited {
+    text-decoration: none;
+}
+
+.btn1 {
+    color: white;
+}
+
+.btn2 {
+    color: #111;
+}
+
+.quote-btn {
+    color: white;
+}
