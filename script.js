@@ -31,3 +31,8 @@ form.addEventListener("submit", async function (e) {
         console.error(error);
     }
 });
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+    }, 1500);
+});
