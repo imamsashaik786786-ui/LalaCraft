@@ -1,24 +1,33 @@
 console.log("Welcome to LalaCraft");
-emailjs.init({
-  publicKey: "VOm0Ld8_EqxkCNnoK",
-});
-
 const form = document.getElementById("contact-form");
+const successMessage = document.getElementById("success-message");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  emailjs.sendForm(
-    "service_r7ac2us",
-    "template_m3ib86s",
-    this
-  )
-  .then(function () {
-    alert("✅ Thank you! Your enquiry has been sent successfully.");
-    form.reset();
-  })
-  .catch(function (error) {
-    console.log(error);
-    alert("❌ Failed to send. Please try again.");
-  });
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        if (response.ok) {
+            form.reset();
+            successMessage.style.display = "block";
+
+            setTimeout(() => {
+                successMessage.style.display = "none";
+            }, 5000);
+        } else {
+            alert("❌ Failed to send your message.");
+        }
+    } catch (error) {
+        alert("❌ Network error. Please try again.");
+        console.error(error);
+    }
 });

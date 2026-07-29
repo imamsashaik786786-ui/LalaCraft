@@ -12,9 +12,7 @@
     💬
 </a>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="script.js"></script>
-</body>
+<body>
 
 <header>
 
@@ -264,7 +262,10 @@ Affordable pricing for every business.
 Fill the form and we'll contact you within 24 hours.
 </p>
 
-<form id="contact-form" class="contact-form">
+<form id="contact-form"
+      class="contact-form"
+      action="https://formspree.io/f/mwvgajyk"
+      method="POST">
 
 <input type="text" name="name" placeholder="Your Name" required>
 
@@ -290,6 +291,9 @@ Fill the form and we'll contact you within 24 hours.
 <button type="submit">🚀 Request a Website</button>
 
 </form>
+<p id="success-message" style="display:none; color:#22c55e; margin-top:15px; text-align:center; font-weight:bold;">
+✅ Thank you! Your message has been sent successfully.
+</p>
 
 </section>
 <footer class="footer">
@@ -336,8 +340,6 @@ Crafting Premium Websites That Grow Businesses.
 
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
