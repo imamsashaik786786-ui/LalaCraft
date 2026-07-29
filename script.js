@@ -46,3 +46,53 @@ faqs.forEach((item) => {
     item.classList.toggle("active");
   });
 });
+// Animated Counter
+const counters = document.querySelectorAll(".stat-box h2");
+
+const animateCounters = () => {
+  counters.forEach(counter => {
+    const text = counter.innerText;
+
+    if (text.includes("★") || text.includes("/")) return;
+
+    const target = parseInt(text.replace("+", ""));
+    let count = 0;
+    const increment = Math.ceil(target / 60);
+
+    const update = () => {
+      count += increment;
+
+      if (count >= target) {
+        counter.innerText = target + "+";
+      } else {
+        counter.innerText = count + "+";
+        requestAnimationFrame(update);
+      }
+    };
+
+    update();
+  });
+};
+
+const statsSection = document.querySelector(".stats");
+
+const observer = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    animateCounters();
+    observer.disconnect();
+  }
+});
+
+observer.observe(statsSection);
+// Scroll Progress Bar
+window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress = (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress-bar").style.width =
+        progress + "%";
+});
